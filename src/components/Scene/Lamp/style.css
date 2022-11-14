@@ -1,0 +1,16 @@
+.lamp-off {
+    width: 100px;
+    height: 100px;
+    border: 3px solid salmon;
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+.lamp-on {
+    width: 100px;
+    height: 100px;
+    border: 3px solid salmon;
+    background-color: yellow;
+    border-radius: 50%;
+}

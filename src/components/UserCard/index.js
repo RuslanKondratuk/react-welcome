@@ -9,12 +9,12 @@ class UserCard extends React.Component{
 
 
     render () {
-        const {userName, userDescription, userImg} = this.props
+        const {user: {name, description, profilePicture}} = this.props;
         return (
             <div className="wrapper wrapperOn">
-                <img src={userImg} alt = {userName} className = 'img'/>
-                <h2>{userName}</h2>
-                <p>{userDescription}</p>
+                <img src={profilePicture} alt = {name} className = 'img'/>
+                <h2>{name}</h2>
+                <p>{description}</p>
             </div>
         )
     }

@@ -5,7 +5,7 @@ import '../UserCard/style.css';
 
 class UserDashboard extends React.Component {
 
-    userMap = () => userData.map((obj) => <UserCard userName = {obj.name} userDescription = {obj.description} userImg = {obj.profilePicture} key = {obj.id} />)
+    userMap = () => userData.map((obj) => <UserCard user = {obj} key = {obj.id} />)
 
     render() {
         return (

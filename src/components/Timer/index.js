@@ -6,16 +6,16 @@ class Timer extends React.Component {
         super(props);
         this.state = {
             time: new Date(0,0,0,0,0,0),
-            butName: 'Start'
+            isStart: true
         }
         this.intervalId = null;
     }
 
 
-    change = () => {
-        if (this.state.butName === 'Start') {
+    clickHandler = () => {
+        if (this.state.isStart) {
             this.start();
-        } else if (this.state.butName === 'Pause') {
+        } else {
             this.stop();
         }
     }
@@ -28,20 +28,26 @@ class Timer extends React.Component {
                 time: newdate
             })
         }, 1000)
+        this.isStart();
+    }
+
+    isStart = () => {
+        const isStart = this.state.isStart;
         this.setState({
-            butName: 'Pause'
+            isStart: !isStart,
         })
     }
 
     stop = () => {
         clearInterval(this.intervalId);
-        this.setState({
-            butName: 'Start'
-        })
+        this.isStart();
     }
 
     clear = () => {
-        this.stop()
+        clearInterval(this.intervalId);
+        this.setState({
+            isStart: true,
+        })
         const clearData = new Date(0,0,0,0,0,0);
         this.setState({
             time: clearData
@@ -49,11 +55,11 @@ class Timer extends React.Component {
     }
 
     render() {
-        const {time, butName} = this.state;
+        const {time, isStart} = this.state;
         return (
             <div>
                 <h1>{format(time, 'HH:mm:ss')}</h1>
-                <button onClick={this.change}>{butName}</button>
+                <button onClick={this.clickHandler}>{isStart ? 'Start' : 'Pause'}</button>
                 <button onClick = {this.clear}>Clear</button>
             </div>
         );
