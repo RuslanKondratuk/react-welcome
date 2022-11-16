@@ -1,46 +1,39 @@
 import React, { Component } from 'react';
 import List from './List';
+import Input from './Input';
 
 class ToDoList extends Component {
     constructor(props) {
         super(props);
         this.state = {
             value: '',
+            listDone: [],
         }
     }
 
-    submitForm = (event) => {
-        event.preventDefault();
+    handler = (value) => {
         this.setState({
+            value: value
+        })
+    }
 
-            isList: true
-        })
-    }
-    renderList = (matter) => {
-        return <List mat={matter}/>
-    }
-    handler = ({target: {value}}) => {
+    pushDoneList = () => {
+        const data = this.state.value;
+        const clearData = '';
+        const arrayList = this.state.listDone.slice();
         this.setState({
-            matter: value
-        })
+            value: clearData,
+            listDone: arrayList.concat([data])
+        });
     }
+
 
     render() {
-        const value = this.state.value;
+        const listData = this.state.listDone;
         return (
             <>
-            <form>
-                <input
-                    type='text'
-                    placeholder = 'Your matter'
-                    name = 'matter'
-                    onChange = {this.handler}
-                />
-                <button onClick={this.submitForm}>Add to the list</button>
-            </form>
-            <div>
-                {this.renderList()}
-            </div>
+            <Input inputValue={this.state.value} callBackParent={this.handler} pushList={this.pushDoneList} />
+            <List data = {listData}/>
             </>
         );
     }
