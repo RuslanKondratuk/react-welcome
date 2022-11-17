@@ -7,9 +7,6 @@ import ToDoList from "./components/ToDoList";
 // import Scene from './components/Scene'
 
 class App extends React.Component {
-    constructor (props) {
-        super(props);
-    }
 
 
     render () {

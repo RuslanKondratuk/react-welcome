@@ -1,0 +1,10 @@
+.input {
+    background-color: rgb(168, 168, 206);
+}
+
+.valid {
+    background-color: rgb(145, 223, 145);
+}
+.invalid {
+    background-color: rgb(201, 94, 94);
+}

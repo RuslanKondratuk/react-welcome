@@ -1,42 +1,56 @@
 import React, { Component } from 'react';
 import List from './List';
 import Input from './Input';
+import styles from './ToDoList.module.css';
+
 
 class ToDoList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '',
-            listDone: [],
+            list: [],
+            isInputValid: true
         }
     }
 
-    handler = (value) => {
-        this.setState({
-            value: value
-        })
-    }
 
-    pushDoneList = () => {
-        const data = this.state.value;
-        const clearData = '';
-        const arrayList = this.state.listDone.slice();
+    addNewItem = (data) => {
+        const {list} = this.state;
+        const todoObject = {
+            body: data,
+            id: list.length
+        }
         this.setState({
-            value: clearData,
-            listDone: arrayList.concat([data])
+            list: [...list, todoObject]
         });
     }
 
+    mapList = () => {
+        const {list} = this.state;
+       return list.map(elem => <List text={elem.body} key={elem.id} id={elem.id} parentDel ={this.delete}/>);
+    }
+
+    delete = (id) => {
+        const array = this.state.list;
+        const changeArray = array.filter(elem => elem.id !== id)
+        this.setState ({
+            list: changeArray
+        })
+    }
 
     render() {
-        const listData = this.state.listDone;
+
         return (
-            <>
-            <Input inputValue={this.state.value} callBackParent={this.handler} pushList={this.pushDoneList} />
-            <List data = {listData}/>
-            </>
+        <section className={styles['container-start']}>
+            <Input sendDataToParent={this.addNewItem}/>
+           <ul>
+            {this.mapList()}
+           </ul>
+        </section>
         );
     }
 }
 
 export default ToDoList;
+
+

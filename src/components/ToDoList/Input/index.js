@@ -1,29 +1,58 @@
 import React from 'react';
+import styles from './Input.module.css'
+import cx from 'classnames';
 
-function Input (props) {
-
-    const toogle = (event) => {
-        const value1 = event.target.value;
-        props.callBackParent(value1)
+class Input extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            todo: '',
+            isInputValid: true,
+        }
     }
 
-    const push = (event) => {
+    changeHandler = ({target: {value, name}}) => {
+        if(value.includes(' ')) {
+            this.setState({
+                isInputValid: false
+            })
+        } else {
+            this.setState({
+                isInputValid: true
+            })
+        }
+        this.setState({
+            [name]: value
+        })
+    }
+
+    submitHandler = (event) => {
         event.preventDefault();
-        props.pushList()
+        this.props.sendDataToParent(this.state.todo);
+        this.setState({
+            todo: ''
+        })
     }
 
-    return (
-        <form>
+    render() {
+        const {todo, isInputValid} = this.state;
+        const clases = cx([styles.input], {
+            [styles.valid]: isInputValid,
+            [styles.invalid]: !isInputValid,
+        })
+        return (
+            <form onSubmit={this.submitHandler} className={styles.container}>
             <input
-                 type='text'
-                 placeholder = 'Your matter'
-                 name = 'matter'
-                 value={props.inputValue}
-                onChange = {toogle}
-            />
-            <button onClick = {push}>Add to the list</button>
-        </form>
-    );
+                type="text"
+                name="todo"
+                value={todo}
+                onChange={this.changeHandler}
+                className={clases}
+                 />
+            <button>Add item</button>
+           </form>
+        );
+    }
 }
 
 export default Input;

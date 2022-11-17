@@ -1,16 +1,14 @@
 import React from 'react';
-
+import styles from './List.module.css'
 function List(props) {
 
-        const list = props.data;
-        return (
-            <ul>
-                {list.map((el) => {
-                return <li key={el}>{el}</li>
-                }
-                )}
-            </ul>
-        );
+    const del = () => {
+        props.parentDel(props.id)
+    }
+
+    return (
+        <li className={styles.container}>{props.text} <button onClick={del}>X</button></li>
+    );
     };
 
 export default List;
