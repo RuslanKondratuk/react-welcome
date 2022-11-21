@@ -1,0 +1,18 @@
+.header {
+    width: 100%;
+    background-color: dodgerblue;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+}
