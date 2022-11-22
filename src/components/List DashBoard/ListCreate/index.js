@@ -1,6 +1,4 @@
-
-
-function ListCreate(props)  {
+export const ListCreate = (props) =>  {
         return (props.card.map((obj) => {
                 console.log(obj)
                 return  <section className='container' key={obj.id}>
@@ -16,4 +14,3 @@ function ListCreate(props)  {
 
 }
 
-export default ListCreate;

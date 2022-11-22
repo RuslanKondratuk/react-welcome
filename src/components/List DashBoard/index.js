@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getData } from "./api";
-import ListCreate from './ListCreate';
+import {ListCreate} from './ListCreate';
 import Spinner from '../Spiner';
 import './style.css'
 class ListDashBoard extends Component {
