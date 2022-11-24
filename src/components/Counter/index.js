@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 
 class Counter extends React.Component {
@@ -9,14 +10,22 @@ class Counter extends React.Component {
         }
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps.step !== this.props.step) {
+            return false
+        }
+        return true
+    }
+
     increment = () => {
-        this.setState({count : this.state.count + 1});
+        const {step} = this.props
+        this.setState({count : this.state.count + step});
     }
 
     decrement = () => {
-        if (this.state.count > 0) {
-            this.setState({count : this.state.count - 1});
-        }
+        const {step} = this.props
+        this.setState({count : this.state.count - step});
+
     }
 
 
@@ -29,6 +38,13 @@ class Counter extends React.Component {
             </div>
         )
     }
+}
+
+Counter.defaultProps = {
+    step: 5
+}
+Counter.propTypes = {
+    step: PropTypes.number
 }
 
 export default Counter;
