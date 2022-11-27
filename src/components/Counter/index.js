@@ -31,11 +31,10 @@ class Counter extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>{this.state.count}</h1>
-                <button onClick={this.increment}>+</button>
-                <button onClick={this.decrement}>-</button>
-            </div>
+            this.props.children({
+                count: this.state.count,
+                increment: this.increment,
+                decrement: this.decrement})
         )
     }
 }

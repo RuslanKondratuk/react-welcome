@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class WindowSize extends Component {
+class WindowSize extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,14 +28,8 @@ class WindowSize extends Component {
 
 
     render() {
-        const {width, heigth} = this.state
         return (
-            <div>
-                <p>
-                    Current width: {width} px
-                    Current heigth: {heigth} px
-                </p>
-            </div>
+           this.props.children(this.state)
         );
     }
 }

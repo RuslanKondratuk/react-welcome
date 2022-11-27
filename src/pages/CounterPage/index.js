@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Counter from '../../components/Counter';
 
+
 class CounterPage extends Component {
     constructor (props) {
         super(props);
@@ -25,7 +26,15 @@ class CounterPage extends Component {
                     value={this.state.inputValue}
                     onChange={this.handlerValue}
                 />
-                <Counter step={this.state.inputValue}/>
+                <Counter step = {this.state.inputValue}>
+                    {({count, increment, decrement}) => {
+                    return (<div>
+                                <h1>{count}</h1>
+                                <button onClick={increment}>+</button>
+                                <button onClick={decrement}>-</button>
+                            </div>)
+                    }}
+                </Counter>
             </div>
         );
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DataProvider from '../components/DataProvider';
+import DataProvider from '../../components/DataProvider';
 
 class LoaderPage extends Component {
     render() {
