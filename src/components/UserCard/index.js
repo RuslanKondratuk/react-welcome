@@ -1,14 +1,10 @@
-import React from "react";
+import React from 'react';
 import PropTypes  from "prop-types";
-import './style.css';
+import './style.scss';
 
 
-class UserCard extends React.Component{
-
-
-
-    render () {
-        const {user: {name: {first, last}, email, picture: {large}}} = this.props;
+const UserCard = (props) => {
+        const {user: {name: {first, last}, email, picture: {large}}} = props;
         return (
             <div className="wrapper wrapperOn">
                 <img src={large} alt = {first} className = 'img'/>
@@ -16,7 +12,6 @@ class UserCard extends React.Component{
                 <p>{email}</p>
             </div>
         )
-    }
 }
 
 

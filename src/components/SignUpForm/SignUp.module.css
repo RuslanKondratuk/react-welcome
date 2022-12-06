@@ -1,0 +1,35 @@
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgb(191, 243, 225);
+    color: black;
+    border: none;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: rgb(138, 132, 132);
+    color: white;
+    border-radius: 20px;
+}
+
+input:hover {
+    border: 1px solid black;
+    background-color: rgb(154, 223, 199);
+    cursor: auto;
+} */

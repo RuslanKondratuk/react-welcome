@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(141,195,240);
+    background: linear-gradient(90deg, rgba(141,195,240,1) 11%, rgba(104,172,242,1) 100%);
+}
+
+
+.header-container {
+    width: 800px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}
+
+
+.logo {
+    height: 80px;
+    width: 80px;
+}
+
+.button-header {
+    width: 100px;
+    height: 50px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: none;
+    color: white;
+    text-decoration: none;
+}
+
+.container {
+    width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error-container {
+    border: 1px solid red;
+    width: 100%;
+    display: flex;
+    margin: 0 0 15px 0;
+    padding: 7px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+
+}
+.form {
+    width: 100%;
+}
+.header {
+    width: 350px;
+
+}
+.title {
+    font-size: 26px;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+
+}
+.sub-title {
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.text-input {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+.text-input-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.row-input {
+    padding: 20px 35px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.span-text {
+    margin-left: 290px;
+}
+
+.label-text {
+    font-size: 20px;
+    color: white;
+    padding-top: 15px;
+}
+
+.label-sub-text {
+    font-size: 12px;
+    color: white;
+    margin: 0;
+    margin-top: 5px;
+    padding-left: 40px;
+    padding-bottom: 15px;
+}
+.radio-input {
+    width: 100%;
+    border: 1px solid white;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5px;
+
+}
+
+.radio {
+    margin-right: 20px;
+}
+.checkbox-input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.padding {
+    padding-left: 8px;
+}
+.btn-create {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    width: 100%;
+    background-color: blue;
+    border-radius: 5px;
+    text-align: center;
+}
+.text-agree {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+}
+
+.link-agree {
+    color: white;
+
+
+}
+.brown {
+    padding: 10px;
+    background-color: brown;
+}

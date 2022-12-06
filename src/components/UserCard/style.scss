@@ -1,0 +1,39 @@
+%wrapper-on {
+    border: 2px solid rgb(174, 3, 3);
+    background-color: rgb(136, 136, 138);
+}
+
+@mixin size($width, $height, $border-radius) {
+    width: $width;
+    height: $height;
+    border-radius: $border-radius;
+}
+
+@mixin flex($flex-wrap, $flex-direction, $justify-content, $align-items) {
+    display: flex;
+    flex-wrap: $flex-wrap;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+}
+
+.section-wrapper{
+    @include flex (wrap, row, start, start);
+    > .wrapper {
+        @include flex (wrap, column, center, center);
+        margin: 10px 5px;
+        overflow: hidden;
+        @include size (200px, 200px, 10px);
+
+        @extend %wrapper-on;
+        > img {
+            @include size (70px, 70px, 100%);
+            object-fit: cover;
+        }
+    }
+}
