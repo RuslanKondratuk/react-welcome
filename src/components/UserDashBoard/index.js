@@ -45,7 +45,7 @@ const UserDashboard = () => {
             <button onClick={prev}>Prev page</button>
             <button onClick={next}> Next page</button>
                 {error && <div>Oops! Error</div>}
-                {users && <UsersList userList = {users}/>}
+                {users && <UsersList users = {users} setUsers = {setUsers}/>}
             </section>
             {isLoading && <Spinner />}
             </>

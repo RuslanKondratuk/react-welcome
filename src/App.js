@@ -1,45 +1,39 @@
-import React from "react";
-import UserDashboard from "./components/UserDashBoard";
+import React, {useEffect, useState} from 'react';
+import Tree from './components/Tree';
+import { UserContext } from './context/UserContext';
+import { ThemeContext } from './context/ThemeContext';
+import { CONSTANTS } from './consts';
+import UserDashBoard from './components/UserDashBoard'
+import LoaderPage from './pages/LoaderPage';
+import WindowSize from './components/WindowSize';
+import SignForm from './components/SignForm';
+// const {THEMES} = CONSTANTS
 
 
 const App = () => {
+    // const [users, setUsers] = useState({
+    //                                 firstName: 'Alex Doe'
+    // })
+    // const [theme, setTheme] = useState(THEMES.LIGHT)
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         user: {
-    //             firstName: 'Ruslan',
-    //             lastName: 'Kondratuk',
-    //             email: 'mail.com',
-    //             avatar: 'https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png'
-    //         },
-    //         theme: THEMES.LIGHT,
-    //     }
+    // const changeThemeCallBack = (theme) => {
+    //     setTheme(theme)
     // }
 
-    // changeThemeCallBack = (theme) => {
-    //     this.setState({
-    //         theme
-    //     })
+    // const loginOut = () => {
+    //     setUsers('')
     // }
 
-    // loginOut = () => {
-    //     this.setState ({
-    //         user: ''
-    //     })
-    // }
-
-
-        // console.log(CONSTANTS)
-        // const {user, theme} = this.state;
         return (
-            // <ThemeContext.Provider value={[theme, this.changeThemeCallBack]}>
-            //     <UserContext.Provider value= {[user, this.loginOut]}>
-            //         <Header/>
+
+            // <ThemeContext.Provider value = {[theme, changeThemeCallBack]}>
+            //     <UserContext.Provider value = {[users, loginOut]}>
             //         <Tree/>
             //     </UserContext.Provider>
             // </ThemeContext.Provider>
-            <UserDashboard/>
+            // <UserDashBoard/>
+            <SignForm/>
+
         )
 
 }

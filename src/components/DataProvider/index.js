@@ -1,39 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
+import useData from '../../hooks/useData';
+import {loadData} from '../../api/user'
 
-class DataProvider extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: [],
-            isFetching: true,
-            error: null,
-        }
-    }
-    componentDidMount() {
-        this.props.loadData()
-        .then((data) => {
-            this.setState({
-                data: data
-            })
-        })
-        .catch(error => {
-            this.setState({
-                error:error
-            })
-        })
-        .finally(() => {
-            this.setState({
-                isFetching: false
-            })
-        })
-    }
-
-
-    render() {
-        return (
-            this.props.children(this.state)
-        );
-    }
+const DataProvider = (props) => {
+    const {data, isFetching, error} = useData(loadData)
+    console.log(data)
+    return (
+        <>
+        {isFetching && <div>Loading...</div>}
+        {error && <div>Error</div>}
+        <ul>
+            {data.map((user) => <li key = {user.id}>{user.name}</li>)}
+        </ul>
+        </>)
 }
 
 export default DataProvider;

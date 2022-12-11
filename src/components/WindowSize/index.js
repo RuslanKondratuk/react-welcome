@@ -1,25 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import useWindowSize from '../../hooks/useWindowSize';
 
 const WindowSize = () => {
 
-    const [size, setSize] = useState({
-                                    width: window.innerWidth,
-                                    heigth: window.innerHeight
-                                    })
-    const resizeHendler = () => {
-        setSize({
-            width: window.innerWidth,
-            heigth: window.innerHeight
-        })
-    };
-
-    useEffect (() => {
-        window.addEventListener('resize', resizeHendler)
-        return () => {
-            window.removeEventListener('resize', resizeHendler)
-        }
-    }, [])
-
+    const {size} = useWindowSize()
     return (
         <div>
             <p>width: {size.width}px</p>

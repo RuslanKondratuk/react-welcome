@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useCallback, useContext, useEffect} from 'react';
+import { UserContext } from '../../context/UserContext';
+import { ThemeContext } from '../../context/ThemeContext';
 import Parent from './Parent';
 import cx from 'classnames'
 import styles from "./Tree.module.css";
@@ -10,11 +12,17 @@ const {THEMES} = CONSTANTS
 
 
 const Tree = (props) => {
-    const {theme, setTheme, user, setUser} = props
-            const changeTheme = () => {
+    const [users, setUsers] = useContext(UserContext);
+    const [theme, setTheme] = useContext(ThemeContext);
+
+            const changeTheme = useCallback(() => {
                 const newTheme = theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT;
                 setTheme(newTheme)
-            }
+            }, [theme])
+
+            useEffect (() => {
+                console.log('reset')
+            }, [changeTheme])
             const cn = cx(styles.container, {
                [styles.darkTheme] : theme === THEMES.DARK,
                [styles.lightTheme] : theme === THEMES.LIGHT
@@ -22,15 +30,15 @@ const Tree = (props) => {
            return  (
             <div className={cn}>
                 <p>Tree</p>
-                <p>{user.firstName}</p>
+                <p>{users.firstName}</p>
                 <Parent />
                 <button onClick={changeTheme}>Change Theme</button>
             </div>
         );
     }
 
-const treeWithUser = withUser(Tree);
-const treeWithUserAndWithTheme = withThemes(treeWithUser)
+// const treeWithUser = withUser(Tree);
+// const treeWithUserAndWithTheme = withThemes(treeWithUser)
 
-export default treeWithUserAndWithTheme;
+export default Tree;
 
